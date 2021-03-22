@@ -29,16 +29,23 @@ class MainPage extends StatelessWidget {
        child: Column(
          mainAxisAlignment: MainAxisAlignment.center,
          children: [
-           Observer(builder: (context) => Text(dzikirCounter.dzikirCount.toString(), style: TextStyle(fontSize: 80),)),
+           Observer(builder: (context) => Text(
+             dzikirCounter.dzikirCount.toString(), style: TextStyle(fontSize: 80),
+             key: Key("textCounter"),
+           )),
            Row(
              mainAxisAlignment: MainAxisAlignment.center,
              children: [
-               FloatingActionButton(onPressed: (){
+               FloatingActionButton(
+                 key: Key("decreaseCounter"),
+                 onPressed: (){
                  //add action
                  dzikirCounter.decreaseDzikirCount();
                }, child:Icon(Icons.minimize),),
                SizedBox(width:20),
-               FloatingActionButton(onPressed: (){
+               FloatingActionButton(
+                 key:Key("increaseCounter"),
+                 onPressed: (){
                  //add action
                  dzikirCounter.increaseDzikirCount();
                }, child:Icon(Icons.add),),
@@ -48,6 +55,7 @@ class MainPage extends StatelessWidget {
            SizedBox(height: 20,),
 
            FlatButton(
+             key:Key("resetCounter"),
              height: 40,
              minWidth: 40,
              onPressed: () {
