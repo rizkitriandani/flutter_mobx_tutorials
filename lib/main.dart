@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:flutter_mobx_tutorials/stores/dzikir_counter.dart';
+
+final DzikirCounterStores dzikirCounter = DzikirCounterStores();
 
 void main() {
   runApp(MyApp());
@@ -23,13 +27,19 @@ class MainPage extends StatelessWidget {
        child: Column(
          mainAxisAlignment: MainAxisAlignment.center,
          children: [
-           Text("0", style: TextStyle(fontSize: 80),),
+           Observer(builder: (context) => Text(dzikirCounter.dzikirCount.toString(), style: TextStyle(fontSize: 80),)),
            Row(
              mainAxisAlignment: MainAxisAlignment.center,
              children: [
-               FloatingActionButton(onPressed: (){}, child:Icon(Icons.minimize),),
+               FloatingActionButton(onPressed: (){
+                 //add action
+                 dzikirCounter.decreaseDzikirCount();
+               }, child:Icon(Icons.minimize),),
                SizedBox(width:20),
-               FloatingActionButton(onPressed: (){}, child:Icon(Icons.add),),
+               FloatingActionButton(onPressed: (){
+                 //add action
+                 dzikirCounter.increaseDzikirCount();
+               }, child:Icon(Icons.add),),
              ],
            ),
 
