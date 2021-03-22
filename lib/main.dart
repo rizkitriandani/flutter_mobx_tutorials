@@ -11,7 +11,9 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+
    return MaterialApp(
+     debugShowCheckedModeBanner: false,
      home: MainPage(),
    );
   }
@@ -42,6 +44,17 @@ class MainPage extends StatelessWidget {
                }, child:Icon(Icons.add),),
              ],
            ),
+
+           SizedBox(height: 20,),
+
+           FlatButton(
+             height: 40,
+             minWidth: 40,
+             onPressed: () {
+             dzikirCounter.resetDzikirCount();
+           }, child: Text("Reset Counter", style: TextStyle(color: Colors.white),),
+           color: Colors.blue,
+           )
 
          ],
        ),

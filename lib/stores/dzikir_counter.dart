@@ -10,12 +10,23 @@ abstract class _DzikirCounterStores with Store {
 
   @action
   void increaseDzikirCount()  {
-    dzikirCount++;
+    if(dzikirCount < 99 ) {
+      dzikirCount++;
+    } else{
+      dzikirCount = 0;
+    }
   }
 
   @action
   void decreaseDzikirCount()  {
-    dzikirCount--;
+    if(dzikirCount > 0){
+      dzikirCount--;
+    }
+  }
+
+  @action
+  void resetDzikirCount() {
+    dzikirCount = 0;
   }
 
 }
